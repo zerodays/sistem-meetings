@@ -115,6 +115,20 @@ class Service {
       return Response.ok(null);
     });
 
+    // delete meeting
+    router.delete('/meetings/<meetingIdStr|[0-9]+>',
+        (Request request, String meetingIdStr) async {
+      int meetingId = int.parse(meetingIdStr);
+
+      await connection.query(
+          'DELETE FROM meetings WHERE id=@id',
+          substitutionValues: {
+            'id': meetingId,
+          });
+
+      return Response.ok(null);
+    });
+
     // list all meetings by project
     // (call projects microservice first to list all projects)
     router.get('/meetings/by_project', (Request request) async {
