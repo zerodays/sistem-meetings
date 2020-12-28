@@ -5,7 +5,6 @@ final env = io.Platform.environment;
 class Config {
   static dynamic getValue(String key, var defaultValue) {
     if (env.containsKey(key)) {
-      print(env[key]);
       return env[key];
     }
     return defaultValue;
