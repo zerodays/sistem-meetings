@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:shelf/shelf.dart' as shelf;
 import 'package:shelf/shelf_io.dart' as io;
 import 'package:shelf_router/shelf_router.dart';
+import 'package:shelf_helpers/shelf_helpers.dart';
 
 import 'config.dart';
 import 'meeting.dart';
@@ -16,6 +17,7 @@ void main(List<String> args) async {
   router.mount('/api/v1/', service.handler);
 
   var handler = const shelf.Pipeline()
+      .addMiddleware(cors())
       .addMiddleware(shelf.logRequests())
       .addHandler(router);
 

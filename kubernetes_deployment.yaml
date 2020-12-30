@@ -15,6 +15,7 @@ spec:
       containers:
         - image: zdays/sistem-meetings:latest
           name: sistem-meetings
+          imagePullPolicy: "Always"
           env:
             - name: SISTEM_MEETINGS_PORT
               value: "8080"
