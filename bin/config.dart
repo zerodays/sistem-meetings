@@ -11,11 +11,11 @@ class Config {
   }
 
   static final hostname = getValue('SISTEM_MEETINGS_HOSTNAME', '0.0.0.0'),
-      port = getValue('SISTEM_MEETINGS_PORT', 8083);
+      port = int.parse(getValue('SISTEM_MEETINGS_PORT', '8083'));
 
   static final databaseUrl =
           getValue('SISTEM_MEETINGS_DATABASE_HOST', 'localhost'),
-      databasePort = getValue('SISTEM_MEETINGS_DATABASE_PORT', 5432);
+      databasePort = int.parse(getValue('SISTEM_MEETINGS_DATABASE_PORT', '5432'));
 
   static final databaseName =
       getValue('SISTEM_MEETINGS_DATABASE_NAME', 'sistem_meetings');
